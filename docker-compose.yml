@@ -72,7 +72,7 @@ services:
         "-c",
         "shared_buffers=512MB",
         "-c",
-        "wal_compression=lz4",
+        "wal_compression=on",
       ]
     restart: always
     networks:
