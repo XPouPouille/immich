@@ -87,4 +87,5 @@ networks:
     external: true
     name: frontend
   internal:
+    name: immich_internal
     internal: true
