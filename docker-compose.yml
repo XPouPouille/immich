@@ -12,7 +12,7 @@ services:
       - database
     restart: always
     networks:
-      - traefik
+      - frontend
       - internal
     labels:
       - "traefik.enable=true"
@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.immich.tls=true"
       - "traefik.http.routers.immich.tls.certresolver=letsencrypt"
       - "traefik.http.services.immich.loadbalancer.server.port=2283"
-      - "traefik.docker.network=traefik"
+      - "traefik.docker.network=frontend"
 
   immich-machine-learning:
     container_name: immich_machine_learning
@@ -83,8 +83,8 @@ volumes:
   model-cache:
 
 networks:
-  traefik:
+  frontend:
     external: true
-    name: traefik
+    name: frontend
   internal:
     internal: true
